@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 
 // Logs all actions going through redux into console
 // https://github.com/evgenyrodionov/redux-logger
-import createLogger from 'redux-logger'
+import { createLogger } from 'redux-logger'
 import { reducer } from '../redux/todoRedux'
 
 // http://redux.js.org/docs/advanced/Middleware.html
