@@ -1,11 +1,41 @@
-import React, { Component, PropTypes } from 'react'
-import { TouchableOpacity, Text, StyleSheet } from 'react-native'
+/*
+The footer compoent Footer.js
+*/
 
-const styles = StyleSheet.create({
-})
+'use strict';
 
-export default class Footer extends Component {
+import React, { Component } from 'react'
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Dimensions,
+} from 'react-native'
+
+
+const {height, width} = Dimensions.get('window');
+
+class Footer extends Component {
   render() {
-    return null
+    return (
+      <TouchableOpacity style={styles.container}>
+        <Text style={styles.title}>Remove Completed Items</Text>
+      </TouchableOpacity>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: 60,
+    width: width,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    color: '#FF5722',
+    fontSize: 18,
+  },
+})
+
+export default Footer;

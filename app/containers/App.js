@@ -1,15 +1,29 @@
-import React, { Component, PropTypes } from 'react'
-import { View, ScrollView, StyleSheet, TextInput, Text } from 'react-native'
-import { connect } from 'react-redux'
-import { Actions } from 'react-native-router-flux'
+/*
+The main compoent App.js
+*/
 
-import { actionCreators } from '../redux/todoRedux'
+'use strict';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-})
+import React, { Component } from 'react';
+import {
+  View,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  Text,
+  Dimensions,
+} from 'react-native';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
+import { actionCreators } from '../redux/todoRedux';
+
+import Title from '../components/Title';
+import Footer from '../components/Footer';
+
+
+const {height, width} = Dimensions.get('window');
 
 const mapStateToProps = (state) => ({
   items: state.items,
@@ -25,10 +39,29 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello, World!</Text>
+        <Title/>
+        <View style={styles.todoList}>
+          <Text>Hello, World!</Text>
+        </View>
+        <View style={styles.separator} />
+        <Footer/>
       </View>
     )
   }
 }
 
-export default connect(mapStateToProps)(App)
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  todoList: {
+    flex: 1,
+  },
+  separator: {
+    height: 0.5,
+    width: width,
+    backgroundColor: '#E0E0E0',
+  }
+})
+
+export default connect(mapStateToProps)(App);
