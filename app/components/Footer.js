@@ -1,20 +1,22 @@
 /*
-The footer compoent Footer.js
+  The footer compoent Footer.js
 */
 
 'use strict';
 
-import React, { Component } from 'react'
+// React
+import React, { Component } from 'react';
 import {
   TouchableOpacity,
   Text,
   StyleSheet,
   Dimensions,
-} from 'react-native'
+} from 'react-native';
 
-
+// Constants
 const {height, width} = Dimensions.get('window');
 
+// Component
 class Footer extends Component {
   render() {
     return (
@@ -36,6 +38,6 @@ const styles = StyleSheet.create({
     color: '#FF5722',
     fontSize: 18,
   },
-})
+});
 
 export default Footer;

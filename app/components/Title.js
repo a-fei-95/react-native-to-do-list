@@ -1,20 +1,22 @@
 /*
-The title compoent Title.js
+  The title compoent Title.js
 */
 
 'use strict';
 
-import React, { Component } from 'react'
+// React
+import React, { Component } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   Dimensions,
-} from 'react-native'
+} from 'react-native';
 
-
+// Constants
 const {height, width} = Dimensions.get('window');
 
+// Component
 class Title extends Component {
   render() {
     return (
@@ -37,6 +39,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
   },
-})
+});
 
 export default Title;

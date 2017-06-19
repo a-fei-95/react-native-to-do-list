@@ -1,19 +1,27 @@
-const types = {
-}
+/*
+  The redux controller
+*/
 
-export const actionCreators = {
+'use strict';
+
+const types = {
+
 }
 
 const initialState = {
   items: [],
 }
 
+export const actionCreators = {
+
+}
+
 export const reducer = (state = initialState, action) => {
-  const {type, payload} = action
+  const {type, payload} = action;
 
   switch(type) {
     default: {
-      return state
+      return state;
     }
   }
 }
