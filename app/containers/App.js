@@ -14,7 +14,6 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
-import PropTypes from 'prop-types';
 // Redux
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -23,6 +22,7 @@ import { actionCreators } from '../redux/todoRedux';
 import Title from '../components/Title';
 import Footer from '../components/Footer';
 import Input from '../components/Input';
+import List from '../components/List';
 
 // Constants
 const {height, width} = Dimensions.get('window');
@@ -34,25 +34,30 @@ const mapStateToProps = (state) => ({
 // Component
 class App extends Component {
 
-  static propTypes = {
-    items: PropTypes.array.isRequired,
-    dispatch: PropTypes.func.isRequired,
+  onAddTodo = (text) => {
+    const { dispatch } = this.props
+
+    dispatch( actionCreators.addItem(text) )
+  }
+
+  onRemoveTodo = (index) => {
+    const { dispatch } = this.props
+
+    dispatch( actionCreators.removeItem(index) )
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Title/>
+        <Title />
         <Input
           placeholder="Add to list..."
           onSubmitEditing={this.onAddTodo}
         />
         <View style={styles.separator} />
-        <View style={styles.todoList}>
-          <Text>Hello, World!</Text>
-        </View>
+        <list />
         <View style={styles.separator} />
-        <Footer/>
+        <Footer />
       </View>
     )
   }
